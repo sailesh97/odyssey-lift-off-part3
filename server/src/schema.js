@@ -5,6 +5,7 @@ const typeDefs = gql`
     "Query to get tracks array for the homepage grid"
     tracksForHome: [Track!]!
     track(id: ID!): Track
+    module(id: ID!): Module!
   }
 
   "A track is a group of Modules that teaches about a specific topic"
@@ -35,6 +36,10 @@ const typeDefs = gql`
     title: String!
     "The Module's length in minutes"
     length: Int
+    "The module's video url, for video-based modules"
+    videoUrl: String!
+    "The module's text-based description, can be in markdown format. In case of a video, it will be the enriched transcript"
+    content: String
   }
 
   "Author of a complete Track or a Module"
